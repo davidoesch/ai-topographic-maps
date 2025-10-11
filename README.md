@@ -1,10 +1,10 @@
 # AI-driven Topographic Map Generation
 
-Automated generation of Swiss-style topographic maps from aerial imagery using Google's Gemini AI.
+Automated generation of Swiss-style topographic maps from aerial imagery using Google’s Gemini AI (NanoBanana).
 
 ## Motivation
 
-This project originated from exploring whether generative AI could transform aerial photographs into professional topographic map renderings that match Swiss cartographic standards. The initial [LinkedIn experiment](https://www.linkedin.com/feed/update/urn:li:activity:7379129420801875968/) demonstrated promising results for single images. This repository extends that work to test **scalability, consistency, and automation** across larger map areas. With all the feedback I got, I adapted the [prompt](prompt.txt) which you can use  directly  in an AI which has NanoBanana integerated such [GEMINI](https://gemini.google.com/app). In GEMINI make sure, you activated "Create Image" when processing the In put
+This project originated from exploring whether generative AI could transform aerial photographs into professional topographic map renderings that match Swiss cartographic standards. The initial [LinkedIn experiment](https://www.linkedin.com/feed/update/urn:li:activity:7379129420801875968/) demonstrated promising results for single images. This repository extends that work to test **scalability, consistency, and automation** across larger map areas. With all the feedback I got and a deep dive in the [Gemini API for image style transfer](https://ai.google.dev/gemini-api/docs/image-generation#3_style_transfer), I adapted the [prompt](prompt.txt) which you can use  directly  in an AI which has NanoBanana integerated such [GEMINI](https://gemini.google.com/app). In GEMINI make sure, you activated "Create Image" when processing the Input
 
 ## Research Question
 
@@ -29,6 +29,27 @@ Can we reliably generate Swiss-style topographic map visualizations from SWISSIM
 ### Overall Assessment
 
 The approach shows **significant potential** for automated cartographic visualization. While not production-ready, results demonstrate that AI can understand and translate aerial imagery into recognizable map styles with reasonable accuracy... and definitely gives a taste of things to come in the coming months (not years!)
+
+## Results
+
+| Aerial Photo | Generated Map | Notes |
+|--------------|---------------|-------|
+| ![Original](output_tiles/1997_1051.jpeg) | ![Generated](output_tiles/1997_1051_map.jpeg) | Cars removed|
+| ![Original](output_tiles/1998_1051.jpeg) | ![Generated](output_tiles/1998_1051_map.jpeg) | aerial imagery not interpreted |
+| ![Original](output_tiles/1999_1051.jpeg) | ![Generated](output_tiles/1999_1051_map.jpeg) |  |
+| ![Original](output_tiles/2000_1051.jpeg) | ![Generated](output_tiles/2000_1051_map.jpeg) |  |
+| ![Original](output_tiles/1997_1052.jpeg) | ![Generated](output_tiles/1997_1052_map.jpeg) | small river interpreted|
+| ![Original](output_tiles/1998_1052.jpeg) | ![Generated](output_tiles/1998_1052_map.jpeg) | |
+| ![Original](output_tiles/1999_1052.jpeg) | ![Generated](output_tiles/1999_1052_map.jpeg) | Soccer court invented |
+| ![Original](output_tiles/2000_1052.jpeg) | ![Generated](output_tiles/2000_1052_map.jpeg) |  |
+| ![Original](output_tiles/1997_1053.jpeg) | ![Generated](output_tiles/1997_1053_map.jpeg) | shadow is somehow stronger |
+| ![Original](output_tiles/1998_1053.jpeg) | ![Generated](output_tiles/1998_1053_map.jpeg) |  |
+| ![Original](output_tiles/1999_1053.jpeg) | ![Generated](output_tiles/1999_1053_map.jpeg) | aerial imagery not completely interpreted|
+| ![Original](output_tiles/2000_1053.jpeg) | ![Generated](output_tiles/2000_1053_map.jpeg) | aerial imagery not interpreted|
+| ![Original](output_tiles/1997_1054.jpeg) | ![Generated](output_tiles/1997_1054_map.jpeg) | artificial bathymetry |
+| ![Original](output_tiles/1998_1054.jpeg) | ![Generated](output_tiles/1998_1054_map.jpeg) | aerial imagery not completely interpreted|
+| ![Original](output_tiles/1999_1054.jpeg) | ![Generated](output_tiles/1999_1054_map.jpeg) | trees missing |
+| ![Original](output_tiles/2000_1054.jpeg) | ![Generated](output_tiles/2000_1054_map.jpeg) | aerial imagery not interpreted |
 
 ## Technical Approach
 
@@ -167,15 +188,6 @@ Transform this aerial photograph into a Swiss topographic map style:
 ...
 ```
 
-
-## Example Results
-
-*[Add screenshots/animated GIFs of before/after comparisons]*
-
-| Aerial Photo | Generated Map | Notes |
-|--------------|---------------|-------|
-| ![Original](examples/original_example.jpg) | ![Generated](examples/generated_example.jpg) | Good building detection |
-
 ## ⚡ Tips & Best Practices
 
 ### For Best Results
@@ -213,14 +225,14 @@ Potential enhancements for more robust results:
 - [ ] Support for multiple style presets
 - [ ] Web interface for non-technical users
 
-## 📚 Related Resources
+## Related Resources
 
 - [Original LinkedIn Post](https://www.linkedin.com/feed/update/urn:li:activity:7379129420801875968/)
 - [swisstopo WMTS API Documentation](https://api3.geo.admin.ch/services/sdiservices.html#wmts)
 - [Google Gemini API - Image Generation](https://ai.google.dev/gemini-api/docs/image-generation#3_style_transfer)
-- [Swiss Topographic Maps (for style reference)](https://map.geo.admin.ch/)
+- [Swisstop BaseMaps (for style reference)](https://www.swisstopo.admin.ch/en/web-maps-base-map)
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Areas particularly helpful:
 
@@ -229,17 +241,14 @@ Contributions are welcome! Areas particularly helpful:
 - Creating quality assessment metrics
 - Adding support for different cartographic styles
 
-## 📄 License
 
-[MIT]
-
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **swisstopo**: For providing excellent WMTS aerial imagery services
 - **Google**: For making Gemini AI accessible through free tier
 - **Community**: For inspiration and feedback on initial experiments
 
-## 📧 Contact
+## Contact
 
 Questions or feedback? [Open an issue](https://github.com/yourusername/ai-topographic-maps/issues) or reach out on [LinkedIn](https://www.linkedin.com/in/davidoesch).
 
