@@ -30,8 +30,10 @@ Can we reliably generate Swiss-style topographic map visualizations from SWISSIM
 
 The approach shows **significant potential** for automated cartographic visualization. While not production-ready, results demonstrate that AI can understand and translate aerial imagery into recognizable map styles with reasonable accuracy... and definitely gives a taste of things to come in the coming months (not years!)
 
+
 ## Results
-## Results
+
+For an approx 500x500m Area in [Switzerland](https://s.geo.admin.ch/34v3ddjudg3x)  
 
 | Aerial Photo | Generated Map | Notes |
 |:---:|:---:|:---|
