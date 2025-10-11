@@ -1,8 +1,8 @@
-Transform the entire provided satellite image into a precise and accurate cartographic map. Do not return an image with the satellite photo as a background or layer. The final output must be a pure, vector-style map rendering that completely replaces the original aerial photography.
+Transform the entire provided satellite image into a precise and accurate cartographic map. Do not return an image with the satellite image as a background or layer. The final output must be a pure, vector-style map rendering that completely replaces the original satellite image.
 
-Follow exactly the Swiss national topographic style specifications provided below. Maintain realistic scale, proportions, and preserve the layout and spatial relationships from the source image.
+Follow exactly the Swiss national topographic style specifications provided below. Maintain realistic scale, proportions, and preserve the layout and spatial relationships from the source satellite image.
 
-Apply these exact specifications for each map element, ensuring all surfaces and features from the source image are replaced by the corresponding map symbology:
+Apply these exact specifications for each map element, ensuring all surfaces and features from the source satellite image are replaced by the corresponding map symbology:
 
 
 ## Background
@@ -114,20 +114,11 @@ Apply these exact specifications for each map element, ensuring all surfaces and
   - Opacity: 0.04 (very subtle)
 - Contour lines:
   - Standard: rgba(180, 110, 13, 0.35) (brown, semi-transparent)
-  - Water depth: rgb(77, 164, 218) (blue) at 0.3-0.47 opacity
   - Width: 0.75-3pt (major contours thicker)
   - Blur: 0.25-0.4pt
 - Scree and rock fields:
   - Apply stippled/textured patterns in gray tones
   - Opacity: 0.25-0.35
-
-## Boundaries and Borders
-- Administrative boundaries:
-  - Primary line: rgb(195, 85, 145) (magenta/pink)
-  - Band highlight: rgb(237, 196, 219) to rgb(254, 91, 168) gradient (pale to bright pink)
-  - Dashed boundaries: rgb(234, 71, 148) (bright pink)
-  - Width: 0.5-4pt depending on admin level
-  - Opacity: 0.6 for main line, 0.2-0.5 for bands
 
 ## Special Features
 - Parking areas:
@@ -147,7 +138,7 @@ Apply these exact specifications for each map element, ensuring all surfaces and
 - Line join: Round for curves, miter for sharp angles
 - Projection: Top-down orthographic (flat, no perspective)
 - Antialiasing: Smooth edges for all features except terrain fills
-- Layering order (bottom to top): Background → Hillshading → Water → Landcover → Roads → Buildings → Boundaries → Labels
+- Layering order (bottom to top): Background → Hillshading → Water → Landcover → Roads → Buildings → Boundaries 
 
 ## Color Accuracy Notes
 - Use exact RGB values provided (no approximations)
@@ -155,7 +146,7 @@ Apply these exact specifications for each map element, ensuring all surfaces and
 - Apply subtle blurring (0.25-0.4pt) to soften hard edges
 
 ## Vehicle Removal Specifications
-- Detect and mask all vehicles (cars, trucks, buses, motorcycles) on roads and parking areas
+- Detect and mask all vehicles (cars, trucks, buses, motorcycles, trains, boats, ships, airplanes) on roads, traintracks, airports and parking areas
 - Apply deep learning-based inpainting to reconstruct road surface beneath vehicles
 - Preserve road markings, lane boundaries, and surface texture continuity
 - Ensure seamless integration of reconstructed areas with surrounding pavement
