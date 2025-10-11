@@ -138,7 +138,7 @@ ai-topographic-maps/
 4. Click **"Share"** → Copy the link
 5. Extract the KML URL from the link (looks like: `https://public.geo.admin.ch/api/kml/files/...`)
 6. Open `style_transfer_swissimage.py` in a text editor
-7. Find the line with `kml_url = "https://public.geo.admin.ch/..."` 
+7. Find the line at the top in the configuration section with `AREA_URL =  = "https://public.geo.admin.ch/..."` 
 8. Replace with your KML URL
 
 **Tip**: Start with a small area (a few city blocks) for your first test!
