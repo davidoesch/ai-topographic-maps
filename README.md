@@ -99,7 +99,7 @@ Before you begin, ensure you have:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ai-topographic-maps.git
+git clone https://github.com/davidoesch/ai-topographic-maps.git
 cd ai-topographic-maps
 ```
 
