@@ -31,26 +31,26 @@ Can we reliably generate Swiss-style topographic map visualizations from SWISSIM
 The approach shows **significant potential** for automated cartographic visualization. While not production-ready, results demonstrate that AI can understand and translate aerial imagery into recognizable map styles with reasonable accuracy... and definitely gives a taste of things to come in the coming months (not years!)
 
 ## Results
+## Results
 
-Aerial Photo                                         |  Generated Map                                            |  Notes                                    
------------------------------------------------------+-----------------------------------------------------------+-------------------------------------------
-<img src="output_tiles/1997_1051.jpeg" width="300">  |  <img src="output_tiles/1997_1051_map.jpeg" width="300">  |  Cars removed                             
-<img src="output_tiles/1998_1051.jpeg" width="300">  |  <img src="output_tiles/1998_1051_map.jpeg" width="300">  |  aerial imagery not interpreted           
-<img src="output_tiles/1999_1051.jpeg" width="300">  |  <img src="output_tiles/1999_1051_map.jpeg" width="300">  |                                           
-<img src="output_tiles/2000_1051.jpeg" width="300">  |  <img src="output_tiles/2000_1051_map.jpeg" width="300">  |                                           
-<img src="output_tiles/1997_1052.jpeg" width="300">  |  <img src="output_tiles/1997_1052_map.jpeg" width="300">  |  small river interpreted                  
-<img src="output_tiles/1998_1052.jpeg" width="300">  |  <img src="output_tiles/1998_1052_map.jpeg" width="300">  |                                           
-<img src="output_tiles/1999_1052.jpeg" width="300">  |  <img src="output_tiles/1999_1052_map.jpeg" width="300">  |  Soccer court invented                    
-<img src="output_tiles/2000_1052.jpeg" width="300">  |  <img src="output_tiles/2000_1052_map.jpeg" width="300">  |                                           
-<img src="output_tiles/1997_1053.jpeg" width="300">  |  <img src="output_tiles/1997_1053_map.jpeg" width="300">  |  shadow is somehow stronger               
-<img src="output_tiles/1998_1053.jpeg" width="300">  |  <img src="output_tiles/1998_1053_map.jpeg" width="300">  |                                           
-<img src="output_tiles/1999_1053.jpeg" width="300">  |  <img src="output_tiles/1999_1053_map.jpeg" width="300">  |  aerial imagery not completely interpreted
-<img src="output_tiles/2000_1053.jpeg" width="300">  |  <img src="output_tiles/2000_1053_map.jpeg" width="300">  |  aerial imagery not interpreted           
-<img src="output_tiles/1997_1054.jpeg" width="300">  |  <img src="output_tiles/1997_1054_map.jpeg" width="300">  |  artificial bathymetry                    
-<img src="output_tiles/1998_1054.jpeg" width="300">  |  <img src="output_tiles/1998_1054_map.jpeg" width="300">  |  aerial imagery not completely interpreted
-<img src="output_tiles/1999_1054.jpeg" width="300">  |  <img src="output_tiles/1999_1054_map.jpeg" width="300">  |  trees missing                            
-<img src="output_tiles/2000_1054.jpeg" width="300">  |  <img src="output_tiles/2000_1054_map.jpeg" width="300">  |  aerial imagery not interpreted           
-
+| Aerial Photo | Generated Map | Notes |
+|:---:|:---:|:---|
+| <img src="output_tiles/1997_1051.jpeg" width="300"> | <img src="output_tiles/1997_1051_map.jpeg" width="300"> | Cars removed |
+| <img src="output_tiles/1998_1051.jpeg" width="300"> | <img src="output_tiles/1998_1051_map.jpeg" width="300"> | aerial imagery not interpreted |
+| <img src="output_tiles/1999_1051.jpeg" width="300"> | <img src="output_tiles/1999_1051_map.jpeg" width="300"> | |
+| <img src="output_tiles/2000_1051.jpeg" width="300"> | <img src="output_tiles/2000_1051_map.jpeg" width="300"> | |
+| <img src="output_tiles/1997_1052.jpeg" width="300"> | <img src="output_tiles/1997_1052_map.jpeg" width="300"> | small river interpreted |
+| <img src="output_tiles/1998_1052.jpeg" width="300"> | <img src="output_tiles/1998_1052_map.jpeg" width="300"> | |
+| <img src="output_tiles/1999_1052.jpeg" width="300"> | <img src="output_tiles/1999_1052_map.jpeg" width="300"> | Soccer court invented |
+| <img src="output_tiles/2000_1052.jpeg" width="300"> | <img src="output_tiles/2000_1052_map.jpeg" width="300"> | |
+| <img src="output_tiles/1997_1053.jpeg" width="300"> | <img src="output_tiles/1997_1053_map.jpeg" width="300"> | shadow is somehow stronger |
+| <img src="output_tiles/1998_1053.jpeg" width="300"> | <img src="output_tiles/1998_1053_map.jpeg" width="300"> | |
+| <img src="output_tiles/1999_1053.jpeg" width="300"> | <img src="output_tiles/1999_1053_map.jpeg" width="300"> | aerial imagery not completely interpreted |
+| <img src="output_tiles/2000_1053.jpeg" width="300"> | <img src="output_tiles/2000_1053_map.jpeg" width="300"> | aerial imagery not interpreted |
+| <img src="output_tiles/1997_1054.jpeg" width="300"> | <img src="output_tiles/1997_1054_map.jpeg" width="300"> | artificial bathymetry |
+| <img src="output_tiles/1998_1054.jpeg" width="300"> | <img src="output_tiles/1998_1054_map.jpeg" width="300"> | aerial imagery not completely interpreted |
+| <img src="output_tiles/1999_1054.jpeg" width="300"> | <img src="output_tiles/1999_1054_map.jpeg" width="300"> | trees missing but we get road names for free|
+| <img src="output_tiles/2000_1054.jpeg" width="300"> | <img src="output_tiles/2000_1054_map.jpeg" width="300"> | aerial imagery not interpreted |
 ## Technical Approach
 
 ### Technology Stack
@@ -188,7 +188,7 @@ Transform this aerial photograph into a Swiss topographic map style:
 ...
 ```
 
-## ⚡ Tips & Best Practices
+## Tips & Best Practices
 
 ### For Best Results
 
