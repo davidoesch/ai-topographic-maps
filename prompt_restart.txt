@@ -1,0 +1,172 @@
+[COMPLETE FRESH START]
+
+You are generating a completely new cartographic map. This is NOT an edit or modification of a previous image. 
+Disregard all conversation history and prior image states.
+
+OBJECTIVE: Transform the provided satellite image into a precise Swiss national topographic map
+TRANSFORMATION REQUIREMENT: Complete replacement of all satellite imagery with vector-style cartographic symbolism
+OUTPUT GUARANTEE: The result must contain ZERO visible satellite photograph elements
+
+PHASE 1 - IMAGE ANALYSIS:
+Identify all geographic features in the satellite image (buildings, roads, water, vegetation, terrain)
+
+PHASE 2 - CARTOGRAPHIC TRANSFORMATION:
+Replace every satellite image element with exact Swiss topographic symbology
+
+PHASE 3 - VERIFICATION:
+Confirm the output is a pure cartographic map with no satellite imagery, no photographic texture, no aerial photography
+
+RENDERING SPECIFICATIONS:
+- Orthographic projection (flat, top-down view)
+- Exact RGB color values as specified
+- Professional, clean cartographic presentation suitable for official swisstopo standards
+
+
+## Background
+- Base color: rgb(253, 253, 254) (off-white)
+- Apply subtle gray hillshading for terrain relief
+
+## Buildings and Structures
+- Standard buildings: Fill with rgb(170, 172, 174) (medium gray)
+- Building outlines: Dark gray rgb(154, 156, 158) with line width 0.5-2pt
+- Roofs and cooling towers: Lighter fill rgb(196, 198, 200) with outline rgb(180, 182, 184)
+- Construction platforms: Light gray rgb(222, 220, 220)
+- Solar panels: Pale yellow rgb(245, 246, 189) with brownish outline rgb(152, 142, 132)
+- Render as solid filled polygons with clean, precise edges
+
+## Roads and Transportation Networks
+
+**IMPORTANT: All roads rendered as clean, continuous centerlines without surface vehicles. Apply vehicle occlusion removal to show underlying road surface only.
+
+**Unified Road Classification (Simplified Homogeneous System):**
+
+- **Major roads** (motorways, highways, trunk roads, routes):
+  - Fill: rgb(248, 207, 117) (golden yellow/beige) - unified color for all major routes
+  - Casing: rgb(70, 55, 30) (dark brown)
+  - Width: 3-11pt fill with 4-14pt casing (scale by importance, not by type)
+  - Apply consistent styling across all motorway and trunk classifications
+
+- **Secondary roads** (all secondary and tertiary routes):
+  - Fill: rgb(250, 243, 158) (pale yellow) - single unified color
+  - Casing: rgb(65, 65, 25) (olive brown)
+  - Width: 2-9pt fill with 3.5-11pt casing
+  - Homogeneous representation regardless of route number
+
+- **Minor roads and local streets** (service roads, residential, tracks):
+  - Fill: rgb(255, 255, 255) (white) - unified appearance
+  - Casing: rgb(60, 60, 60) (dark gray)
+  - Width: 1.5-8pt fill with 2.5-10pt casing
+  - Consistent styling for all local access roads
+
+- **Footpaths and trails:**
+  - Color: rgb(60, 60, 60) (dark gray)
+  - Style: Dashed line pattern with 16-40pt dashes, 2-4pt gaps
+  - Width: 0.75-2pt
+
+- **Mountain trails:**
+  - Color: rgb(20, 20, 20) (nearly black)
+  - Style: Dashed line
+  - Width: 2-3.5pt
+
+- **Railways and transit:**
+  - Color: rgb(203, 77, 77) (red-brown)
+  - Width: 0.75-2pt solid lines
+
+- **Ferries:**
+  - Color: rgb(77, 164, 218) (blue)
+  - Style: Dashed lines (6-18pt dashes, 2-4pt gaps)
+  - Width: 0.4-2.5pt
+
+**Road Surface Rendering:**
+- Remove all vehicles, cars, trucks, and moving objects from road surfaces using inpainting techniques
+- Reconstruct underlying pavement/surface texture where vehicles were present
+- Maintain road boundary precision and lane marking continuity
+- Show only static road infrastructure (pavement, markings, surfaces)
+
+## Water Bodies and Features
+- Lakes and oceans:
+  - Fill: rgb(210, 238, 255) (light sky blue)
+- Rivers and streams:
+  - Fill: rgb(181, 225, 253) (slightly darker blue)
+- Waterways (rivers, canals):
+  - Line color: rgb(77, 164, 218) (medium blue)
+  - Width: 0.25-10pt depending on water body size
+- Intermittent streams:
+  - Line color: rgb(0, 0, 0) (black)
+  - Opacity: 0.4 (40%)
+  - Style: Dashed pattern (0.75-4pt dashes with gaps)
+- Water boundaries/shorelines:
+  - Line color: rgb(77, 164, 218) (blue)
+  - Width: 0.1-1.5pt
+  - Blur: 0.25pt
+
+## Vegetation and Landcover
+- Forests and woodlands:
+  - Primary: rgb(62, 168, 0) (vibrant green)
+  - Alternative: rgb(62, 153, 10) (darker green)
+  - Opacity: 0.1-0.25
+- Parks and green spaces:
+  - Fill: rgb(211, 235, 199) (pale green)
+  - Opacity: 0.25-0.35
+- Park boundaries:
+  - Line color: rgb(112, 180, 70) (medium green)
+  - Width: 1-4pt with 0.4pt blur
+- Residential/urban green:
+  - Fill: rgb(246, 219, 164) transitioning to rgba(188, 186, 185, 0.4) (beige to gray)
+- Sports fields/pitches:
+  - Fill: rgb(231, 243, 225) (very pale green)
+- Sand/beach areas:
+  - Fill: rgb(239, 176, 87) (sandy orange)
+- Glaciers and ice:
+  - Fill: rgb(205, 232, 244) (ice blue)
+  - Opacity: 0.1-0.3
+
+## Terrain and Elevation
+- Hillshading (shadows):
+  - Gray scale gradient from rgb(173, 188, 199) (darkest) to rgb(251, 252, 252) (lightest)
+  - Apply based on luminosity values -15 to 0
+  - Opacity: 0.5-1.0
+- Sunny slopes:
+  - Tint: rgb(255, 235, 5) (yellow)
+  - Opacity: 0.04 (very subtle)
+- Contour lines:
+  - Standard: rgba(180, 110, 13, 0.35) (brown, semi-transparent)
+  - Width: 0.75-3pt (major contours thicker)
+  - Blur: 0.25-0.4pt
+- Scree and rock fields:
+  - Apply stippled/textured patterns in gray tones
+  - Opacity: 0.25-0.35
+
+## Special Features
+- Parking areas:
+  - Fill: rgb(255, 255, 255) (white)
+  - Outline: rgb(60, 60, 60) (dark gray)
+  - **Remove parked vehicles** - show empty parking spaces only
+- Dams and weirs:
+  - Fill: rgb(196, 198, 200) (light gray)
+  - Outline: rgb(154, 156, 158) (medium gray)
+- Retaining walls:
+  - Line: rgb(132, 132, 132) (medium gray)
+  - Width: 0.5-3pt
+
+## Overall Technical Specifications
+- Line blur: 0.25-0.4pt for smooth appearance
+- Line cap: Round for roads, butt for boundaries
+- Line join: Round for curves, miter for sharp angles
+- Projection: Top-down orthographic (flat, no perspective)
+- Antialiasing: Smooth edges for all features except terrain fills
+- Layering order (bottom to top): Background → Hillshading → Water → Landcover → Roads → Buildings → Boundaries 
+
+## Color Accuracy Notes
+- Use exact RGB values provided (no approximations)
+- Maintain opacity/transparency as specified
+- Apply subtle blurring (0.25-0.4pt) to soften hard edges
+
+## Vehicle Removal Specifications
+- Detect and mask all vehicles (cars, trucks, buses, motorcycles, trains, boats, ships, airplanes) on roads, traintracks, airports and parking areas
+- Apply deep learning-based inpainting to reconstruct road surface beneath vehicles
+- Preserve road markings, lane boundaries, and surface texture continuity
+- Ensure seamless integration of reconstructed areas with surrounding pavement
+- Maintain edge fidelity and structural features of roads during vehicle removal
+
+**Output Requirements:** Vector-style cartographic map with Swiss precision, clean geometry, harmonious homogeneous road classification, vehicle-free representation, proper layering hierarchy, and professional presentation quality suitable for official topographic analysis.

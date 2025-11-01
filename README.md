@@ -22,7 +22,8 @@ Can we reliably generate Swiss-style topographic map visualizations from SWISSIM
 ### Current Limitations
 
 ⚠️ **Consistency Challenges**: Generated interpretations vary between tiles, creating visual discontinuities  
-⚠️ **Incomplete Processing**: Not all aerial imagery elements are consistently interpreted: vegetation and water bodies (greenish small ponds), use of NIR imagery might help
+~~⚠️ **Incomplete Processing**: Not all aerial imagery elements are consistently interpreted: vegetation and water bodies (greenish small ponds), use of NIR imagery might help~~ fixed in release v1.0.0
+
 ⚠️ **Style Variations**: The AI doesn't always apply the same cartographic style across the entire area  
 ⚠️ **Transient Objects**: Cars and temporary features are not always automatically removed  
 
@@ -37,22 +38,57 @@ For an approx 500x500m Area in [Switzerland](https://s.geo.admin.ch/34v3ddjudg3x
 
 | Aerial Photo | Generated Map | Notes |
 |:---:|:---:|:---|
-| <img src="output_tiles/1997_1051.jpeg" width="300"> | <img src="output_tiles/1997_1051_map.jpeg" width="300"> | Cars removed |
-| <img src="output_tiles/1998_1051.jpeg" width="300"> | <img src="output_tiles/1998_1051_map.jpeg" width="300"> | aerial imagery not interpreted |
-| <img src="output_tiles/1999_1051.jpeg" width="300"> | <img src="output_tiles/1999_1051_map.jpeg" width="300"> | |
-| <img src="output_tiles/2000_1051.jpeg" width="300"> | <img src="output_tiles/2000_1051_map.jpeg" width="300"> | |
-| <img src="output_tiles/1997_1052.jpeg" width="300"> | <img src="output_tiles/1997_1052_map.jpeg" width="300"> | small river interpreted |
-| <img src="output_tiles/1998_1052.jpeg" width="300"> | <img src="output_tiles/1998_1052_map.jpeg" width="300"> | |
-| <img src="output_tiles/1999_1052.jpeg" width="300"> | <img src="output_tiles/1999_1052_map.jpeg" width="300"> | Soccer court invented |
-| <img src="output_tiles/2000_1052.jpeg" width="300"> | <img src="output_tiles/2000_1052_map.jpeg" width="300"> | |
-| <img src="output_tiles/1997_1053.jpeg" width="300"> | <img src="output_tiles/1997_1053_map.jpeg" width="300"> | shadow is somehow stronger |
-| <img src="output_tiles/1998_1053.jpeg" width="300"> | <img src="output_tiles/1998_1053_map.jpeg" width="300"> | |
-| <img src="output_tiles/1999_1053.jpeg" width="300"> | <img src="output_tiles/1999_1053_map.jpeg" width="300"> | aerial imagery not completely interpreted |
-| <img src="output_tiles/2000_1053.jpeg" width="300"> | <img src="output_tiles/2000_1053_map.jpeg" width="300"> | aerial imagery not interpreted |
-| <img src="output_tiles/1997_1054.jpeg" width="300"> | <img src="output_tiles/1997_1054_map.jpeg" width="300"> | artificial bathymetry |
-| <img src="output_tiles/1998_1054.jpeg" width="300"> | <img src="output_tiles/1998_1054_map.jpeg" width="300"> | aerial imagery not completely interpreted |
-| <img src="output_tiles/1999_1054.jpeg" width="300"> | <img src="output_tiles/1999_1054_map.jpeg" width="300"> | trees missing but we get road names for free|
-| <img src="output_tiles/2000_1054.jpeg" width="300"> | <img src="output_tiles/2000_1054_map.jpeg" width="300"> | aerial imagery not interpreted |
+| <img src="output_tiles_ssmi_fixed/1997_1051.jpeg" width="300"> | <img src="output_tiles_ssmi_fixed/1997_1051_map.jpeg" width="300"> | |
+| <img src="output_tiles_ssmi_fixed/1998_1051.jpeg" width="300"> | <img src="output_tiles_ssmi_fixed/1998_1051_map.jpeg" width="300"> | |
+| <img src="output_tiles_ssmi_fixed/1999_1051.jpeg" width="300"> | <img src="output_tiles_ssmi_fixed/1999_1051_map.jpeg" width="300"> | A complete hallucination |
+| <img src="output_tiles_ssmi_fixed/2000_1051.jpeg" width="300"> | <img src="output_tiles_ssmi_fixed/2000_1051_map.jpeg" width="300"> | |
+| <img src="output_tiles_ssmi_fixed/1997_1052.jpeg" width="300"> | <img src="output_tiles_ssmi_fixed/1997_1052_map.jpeg" width="300"> | |
+| <img src="output_tiles_ssmi_fixed/1998_1052.jpeg" width="300"> | <img src="output_tiles_ssmi_fixed/1998_1052_map.jpeg" width="300"> | |
+| <img src="output_tiles_ssmi_fixed/1999_1052.jpeg" width="300"> | <img src="output_tiles_ssmi_fixed/1999_1052_map.jpeg" width="300"> | |
+| <img src="output_tiles_ssmi_fixed/2000_1052.jpeg" width="300"> | <img src="output_tiles_ssmi_fixed/2000_1052_map.jpeg" width="300"> | |
+| <img src="output_tiles_ssmi_fixed/1997_1053.jpeg" width="300"> | <img src="output_tiles_ssmi_fixed/1997_1053_map.jpeg" width="300"> | |
+| <img src="output_tiles_ssmi_fixed/1998_1053.jpeg" width="300"> | <img src="output_tiles_ssmi_fixed/1998_1053_map.jpeg" width="300"> | |
+| <img src="output_tiles_ssmi_fixed/1999_1053.jpeg" width="300"> | <img src="output_tiles_ssmi_fixed/1999_1053_map.jpeg" width="300"> | |
+| <img src="output_tiles_ssmi_fixed/2000_1053.jpeg" width="300"> | <img src="output_tiles_ssmi_fixed/2000_1053_map.jpeg" width="300"> | |
+| <img src="output_tiles_ssmi_fixed/1997_1054.jpeg" width="300"> | <img src="output_tiles_ssmi_fixed/1997_1054_map.jpeg" width="300"> | |
+| <img src="output_tiles_ssmi_fixed/1998_1054.jpeg" width="300"> | <img src="output_tiles_ssmi_fixed/1998_1054_map.jpeg" width="300"> | |
+| <img src="output_tiles_ssmi_fixed/1999_1054.jpeg" width="300"> | <img src="output_tiles_ssmi_fixed/1999_1054_map.jpeg" width="300"> | |
+| <img src="output_tiles_ssmi_fixed/2000_1054.jpeg" width="300"> | <img src="output_tiles_ssmi_fixed/2000_1054_map.jpeg" width="300"> | |
+
+
+
+## Identify failed generation
+
+Using [SSIM (Structural Similarity Index)](ssim_compare.py) to compare original satellite images with generated maps helps detect if transformation actually occurred or if output is too similar to input (This is a common issue and well understood [Nano Banana performs better on cold starts and degrades over multiple iterations](https://www.perplexity.ai/search/i-m-wotking-with-nano-banana-o-FTCMR1btSUaLzVngYsCLSg#0) ). High SSIM values (>0.35) indicate potential failed generations where the AI didn't properly transform the image.
+
+| Aerial Photo | Generated Map | SSIM Score | Status |
+|:---:|:---:|:---:|:---|
+| <img src="output_tiles_ssmi/1997_1051.jpeg" width="300"> | <img src="output_tiles_ssmi/1997_1051_map.jpeg" width="300"> | 0.2582 | ✅ **SUCCESS**<br>SSIM: 0.2582 |
+| <img src="output_tiles_ssmi/1997_1052.jpeg" width="300"> | <img src="output_tiles_ssmi/1997_1052_map.jpeg" width="300"> | 0.2205 | ✅ **SUCCESS**<br>SSIM: 0.2205 |
+| <img src="output_tiles_ssmi/1997_1053.jpeg" width="300"> | <img src="output_tiles_ssmi/1997_1053_map.jpeg" width="300"> | 0.2724 | ✅ **SUCCESS**<br>SSIM: 0.2724 |
+| <img src="output_tiles_ssmi/1997_1054.jpeg" width="300"> | <img src="output_tiles_ssmi/1997_1054_map.jpeg" width="300"> | 0.3040 | ✅ **SUCCESS**<br>SSIM: 0.3040 |
+| <img src="output_tiles_ssmi/1998_1051.jpeg" width="300"> | <img src="output_tiles_ssmi/1998_1051_map.jpeg" width="300"> | 0.4044 | ❌ **FAILED**<br>Too similar to input<br>SSIM: 0.4044 |
+| <img src="output_tiles_ssmi/1998_1052.jpeg" width="300"> | <img src="output_tiles_ssmi/1998_1052_map.jpeg" width="300"> | 0.3174 | ✅ **SUCCESS**<br>SSIM: 0.3174 |
+| <img src="output_tiles_ssmi/1998_1053.jpeg" width="300"> | <img src="output_tiles_ssmi/1998_1053_map.jpeg" width="300"> | 0.2887 | ✅ **SUCCESS**<br>SSIM: 0.2887 |
+| <img src="output_tiles_ssmi/1998_1054.jpeg" width="300"> | <img src="output_tiles_ssmi/1998_1054_map.jpeg" width="300"> | 0.4760 | ❌ **FAILED**<br>Too similar to input<br>SSIM: 0.4760 |
+| <img src="output_tiles_ssmi/1999_1051.jpeg" width="300"> | <img src="output_tiles_ssmi/1999_1051_map.jpeg" width="300"> | 0.2409 | ✅ **SUCCESS**<br>SSIM: 0.2409 |
+| <img src="output_tiles_ssmi/1999_1052.jpeg" width="300"> | <img src="output_tiles_ssmi/1999_1052_map.jpeg" width="300"> | 0.3484 | ✅ **SUCCESS**<br>SSIM: 0.3484 |
+| <img src="output_tiles_ssmi/1999_1053.jpeg" width="300"> | <img src="output_tiles_ssmi/1999_1053_map.jpeg" width="300"> | 0.4078 | ❌ **FAILED**<br>Too similar to input<br>SSIM: 0.4078 |
+| <img src="output_tiles_ssmi/1999_1054.jpeg" width="300"> | <img src="output_tiles_ssmi/1999_1054_map.jpeg" width="300"> | 0.2977 | ✅ **SUCCESS**<br>SSIM: 0.2977 |
+| <img src="output_tiles_ssmi/2000_1051.jpeg" width="300"> | <img src="output_tiles_ssmi/2000_1051_map.jpeg" width="300"> | 0.3145 | ✅ **SUCCESS**<br>SSIM: 0.3145 |
+| <img src="output_tiles_ssmi/2000_1052.jpeg" width="300"> | <img src="output_tiles_ssmi/2000_1052_map.jpeg" width="300"> | 0.3007 | ✅ **SUCCESS**<br>SSIM: 0.3007 |
+| <img src="output_tiles_ssmi/2000_1053.jpeg" width="300"> | <img src="output_tiles_ssmi/2000_1053_map.jpeg" width="300"> | 0.5714 | ❌ **FAILED**<br>Too similar to input<br>SSIM: 0.5714 |
+| <img src="output_tiles_ssmi/2000_1054.jpeg" width="300"> | <img src="output_tiles_ssmi/2000_1054_map.jpeg" width="300"> | 0.4885 | ❌ **FAILED**<br>Too similar to input<br>SSIM: 0.4885 |
+
+---
+
+### Legend
+- ✅ **SUCCESS**: Image successfully transformed (SSIM < threshold)
+- ❌ **FAILED**: Generated image too similar to input (transformation did not occur)
+- **SSIM Score**: Structural Similarity Index (0-1, higher = more similar)
+
+These tiles required reprocessing .
+
 ## Technical Approach
 
 ### Technology Stack
@@ -66,7 +102,7 @@ For an approx 500x500m Area in [Switzerland](https://s.geo.admin.ch/34v3ddjudg3x
 
 1. **Define Area in Switzerland**: [Draw a polygon](https://www.geo.admin.ch/en/map-viewer-functions-drawing-and-measuring) on [map.geo.admin.ch](https://map.geo.admin.ch) and grab the [link to the KML](https://www.geo.admin.ch/en/map-viewer-functions-drawing-and-measuring#Share,-export-and-further-edit-drawings)
 2. **Download Tiles**: Script fetches WMTS tiles (256×256 px) covering the area. swisstopo data are [open](https://www.swisstopo.admin.ch/en/free-geodata-ogd)
-3. **AI Processing**: Each tile is processed through Gemini with a custom cartographic [prompt](prompt.txt) based on  swisstopo's [Basemap Style](https://api.geo.admin.ch/services/sdiservices.html#getstyle)
+3. **AI Processing**: Each tile is processed through Gemini with a custom cartographic [prompt](prompt.txt) based on  swisstopo's [Basemap Style](https://api.geo.admin.ch/services/sdiservices.html#getstyle). Using SSIM (Structural Similarity Index) we check if the transformation was successfull and rerun it with a [rerun prompt](prompt_restart.txt) we try it at least 3 times
 4. **Output**: Generated map tiles saved alongside original aerial photos
 
 ### Why Tile-Based Processing?
@@ -110,7 +146,7 @@ Or download as ZIP and extract to a folder.
 Open a terminal/command prompt in the project folder and run:
 
 ```bash
-pip install google-genai pillow pyproj requests
+pip install requests pillow google-genai pyproj numpy scikit-image
 ```
 
 ### Step 4: Set Up Your API Key
@@ -125,6 +161,7 @@ pip install google-genai pillow pyproj requests
 ai-topographic-maps/
 ├── style_transfer_swissimage.py
 ├── prompt.txt
+├── prompt_restart.txt
 ├── secrets/
 │   └── genai_key.txt
 └── README.md
@@ -160,13 +197,13 @@ The script will:
 2. Calculate required map tiles
 3. Download aerial photos from swisstopo
 4. Process each tile through Gemini AI
-5. Save results to `output_tiles/` folder
+5. Save results to `output_tiles_ssmi_fixed/` folder
 
 **Processing time**: ~5-10 seconds per tile (depending on API response time)
 
 ### Output Files
 
-Generated files are saved in the `output_tiles/` directory:
+Generated files are saved in the `output_tiles_ssmi_fixed/` directory:
 
 - `{col}_{row}.jpeg` - Original aerial photo
 - `{col}_{row}_map.jpeg` - AI-generated topographic rendering
