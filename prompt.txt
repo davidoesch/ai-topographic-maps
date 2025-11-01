@@ -1,8 +1,26 @@
-Transform the entire provided satellite image into a precise and accurate cartographic map. Do not return an image with the satellite image as a background or layer. The final output must be a pure, vector-style map rendering that completely replaces the original satellite image.
+[COMPLETE FRESH START]
 
-Follow exactly the Swiss national topographic style specifications provided below. Maintain realistic scale, proportions, and preserve the layout and spatial relationships from the source satellite image.
+You are generating a completely new cartographic map. This is NOT an edit or modification of a previous image. 
+Disregard all conversation history and prior image states.
 
-Apply these exact specifications for each map element, ensuring all surfaces and features from the source satellite image are replaced by the corresponding map symbology:
+OBJECTIVE: Transform the provided satellite image into a precise Swiss national topographic map
+TRANSFORMATION REQUIREMENT: Complete replacement of all satellite imagery with vector-style cartographic symbolism. Maintain scale, proportions, and preserve the layout and spatial relationships from the source satellite image.
+OUTPUT GUARANTEE: The result must contain ZERO visible satellite photograph elements
+
+PHASE 1 - IMAGE ANALYSIS:
+Identify all geographic features in the satellite image (buildings, roads, water, vegetation, terrain)
+
+PHASE 2 - CARTOGRAPHIC TRANSFORMATION:
+Replace every satellite image element with exact Swiss topographic symbology
+
+PHASE 3 - VERIFICATION:
+Confirm the output is a pure cartographic map with no satellite imagery, no photographic texture, no aerial photography
+
+RENDERING SPECIFICATIONS:
+- Orthographic projection (flat, top-down view)
+- Exact RGB color values as specified
+- Maintain scale
+- Professional, clean cartographic presentation suitable for official swisstopo standards
 
 
 ## Background

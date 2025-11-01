@@ -48,6 +48,27 @@ def read_prompt(filename='prompt.txt'):
     with open(filename, 'r') as f:
         return f.read().strip()
 
+def resize_to_match(output_image, reference_image):
+    """
+    Resize output image to exactly match reference image dimensions.
+    Uses high-quality Lanczos resampling to preserve detail.
+
+    Args:
+        output_image: PIL Image to resize
+        reference_image: PIL Image with target dimensions
+
+    Returns:
+        PIL Image resized to match reference dimensions
+    """
+    ref_width, ref_height = reference_image.size
+    out_width, out_height = output_image.size
+
+    if (out_width, out_height) != (ref_width, ref_height):
+        print(f"  Resizing output from {out_width}x{out_height} to {ref_width}x{ref_height}")
+        output_image = output_image.resize((ref_width, ref_height), Image.LANCZOS)
+
+    return output_image
+
 def calculate_ssim_score(img1, img2):
     """Calculate SSIM between two images
 
@@ -176,8 +197,24 @@ def download_tile(tile_col, tile_row, zoom):
         return None
 
 def apply_style_transfer(client, image, prompt, tile_col, tile_row, max_retries=3):
-    """Apply Gemini style transfer to image"""
+    """Apply Gemini style transfer to image
+
+    Args:
+        client: Gemini client
+        image: Input PIL Image
+        prompt: Transformation prompt
+        tile_col: Tile column for logging
+        tile_row: Tile row for logging
+        max_retries: Maximum retry attempts
+
+    Returns:
+        PIL Image or None if failed
+    """
     print(f"Applying style transfer to tile Col={tile_col}, Row={tile_row}")
+
+    # Store original dimensions
+    original_width, original_height = image.size
+    print(f"  Input image size: {original_width}x{original_height}")
 
     for attempt in range(max_retries):
         try:
@@ -193,7 +230,17 @@ def apply_style_transfer(client, image, prompt, tile_col, tile_row, max_retries=
             ]
 
             if image_parts:
-                return Image.open(BytesIO(image_parts[0]))
+                output_image = Image.open(BytesIO(image_parts[0]))
+                output_width, output_height = output_image.size
+                print(f"  Output image size: {output_width}x{output_height}")
+
+                # Resize to match original if dimensions differ
+                if (output_width, output_height) != (original_width, original_height):
+                    print(f"  ⚠️  Dimension mismatch detected!")
+                    output_image = resize_to_match(output_image, image)
+                    print(f"  ✅ Resized to match input: {output_image.size}")
+
+                return output_image
             else:
                 print(f"No image generated for tile {tile_col}/{tile_row}")
                 return None
@@ -211,7 +258,10 @@ def apply_style_transfer(client, image, prompt, tile_col, tile_row, max_retries=
 
 def process_tile_with_validation(client, original_image, prompt, prompt_retry, tile_col, tile_row,
                                   original_path, styled_path, threshold=0.35, max_attempts=3):
-    """Process a tile with SSIM validation and retry logic"""
+    """Process a tile with SSIM validation and retry logic
+
+    Ensures output image exactly matches input dimensions and scale.
+    """
 
     for attempt in range(max_attempts):
         # Use retry prompt after first attempt
@@ -220,14 +270,22 @@ def process_tile_with_validation(client, original_image, prompt, prompt_retry, t
 
         print(f"\n  Attempt {attempt + 1}/{max_attempts} using {prompt_type} prompt")
 
-        # Apply style transfer
+        # Apply style transfer (includes automatic resizing to match input)
         styled_image = apply_style_transfer(client, original_image, current_prompt, tile_col, tile_row)
         if styled_image is None:
             print(f"  Style transfer failed on attempt {attempt + 1}")
             continue
 
+        # Verify dimensions match (double-check)
+        orig_size = original_image.size
+        styled_size = styled_image.size
+        if orig_size != styled_size:
+            print(f"  ⚠️  Final dimension check failed: {styled_size} != {orig_size}")
+            styled_image = resize_to_match(styled_image, original_image)
+            print(f"  ✅ Force-resized to: {styled_image.size}")
+
         # Save styled tile
-        styled_image.save(styled_path)
+        styled_image.save(styled_path, quality=95)
         print(f"  Saved styled: {styled_path}")
 
         # Calculate SSIM
@@ -261,10 +319,10 @@ def main():
 
     # Try to load retry prompt, fallback to main prompt if not found
     try:
-        prompt_retry = read_prompt('prompt_restart.txt')
+        prompt_retry = read_prompt('prompt.txt')
         print(f"Retry prompt loaded: {prompt_retry[:100]}...")
     except FileNotFoundError:
-        print("Warning: prompt_restart.txt not found, using main prompt for retries")
+        print("Warning: prompt.txt not found, using main prompt for retries")
         prompt_retry = prompt
 
     # Download and parse KML
@@ -295,8 +353,8 @@ def main():
 
         # Save original tile
         original_path = os.path.join(OUTPUT_DIR, f"{tile_col}_{tile_row}.jpeg")
-        original_image.save(original_path)
-        print(f"Saved original: {original_path}")
+        original_image.save(original_path, quality=95)
+        print(f"Saved original: {original_path} ({original_image.size[0]}x{original_image.size[1]})")
 
         # Process with validation and retry
         styled_path = os.path.join(OUTPUT_DIR, f"{tile_col}_{tile_row}_map.jpeg")
